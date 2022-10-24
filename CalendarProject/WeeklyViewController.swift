@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var selectedDate = Date()
-    var totalSquares = [String]()
+    var totalSquares = [Date]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,26 +36,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     {
         totalSquares.removeAll()
         
-        //present current date at the moment
-        let daysInMonth = CalendarHelper().daysInMonth(date: selectedDate) //total days
+        var current = CalendarHelper().sundayForDate(date: selectedDate)
+        let nextSunday = CalendarHelper().addDays(date: current, days: 7)
         
-        //to identify which weekday is first day of the month
-        let firstDayofMonth = CalendarHelper().firstOfMonth(date: selectedDate)
-        let startingSpaces = CalendarHelper().weekDay(date: firstDayofMonth)
-        
-        var count: Int = 1
-        
-        //to fill out the view at the correct starting weekday of each month and where to stop at the end of each month
-        while(count <= 42) //42 squares total for each calendar (7*6)
-        {
-            if(count <= startingSpaces || count - startingSpaces > daysInMonth){
-                totalSquares.append("")
-            }
-            else{
-                totalSquares.append(String(count - startingSpaces))
-            }
-            count += 1
+        while(current < nextSunday){
+            totalSquares.append(current)
+            current = CalendarHelper().addDays(date: current, days: 1)
         }
+        
         
         //display Month year
         monthLabel.text = CalendarHelper().monthString(date: selectedDate) + " " + CalendarHelper().yearString(date: selectedDate)
@@ -68,24 +56,39 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCell
-        cell.dayOfMonth.text = totalSquares[indexPath.item]
+        
+        let date = totalSquares[indexPath.item]
+        cell.dayOfMonth.text = String(CalendarHelper().dayOfMonth(date: date))
+        
+        if(date == selectedDate)
+        {
+            cell.backgroundColor = UIColor.systemGreen
+
+        }
+        else{
+            cell.backgroundColor = UIColor.white
+        }
+        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedDate = totalSquares[indexPath.item]
+        collectionView.reloadData()
+    }
     
     
-    @IBAction func prevMonth(_ sender: Any) {
-        selectedDate = CalendarHelper().minusMonth(date: selectedDate)
+    
+    @IBAction func prevWeek(_ sender: Any) {
+        selectedDate = CalendarHelper().addDays(date: selectedDate, days: -7)
         setMonthView()
     }
     
-    @IBAction func nextMonth(_ sender: Any) {
-        selectedDate = CalendarHelper().plusMonth(date: selectedDate)
+    @IBAction func nextWeek(_ sender: Any) {
+        selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
         setMonthView()
     }
-    
-    override open var shouldAutorotate: Bool{
-        return false
-    }
+
 }
+
 
