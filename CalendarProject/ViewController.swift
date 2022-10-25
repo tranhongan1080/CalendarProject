@@ -87,5 +87,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override open var shouldAutorotate: Bool{
         return false
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setMonthView()
+    }
 }
 

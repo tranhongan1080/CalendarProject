@@ -29,6 +29,14 @@ class CalendarHelper{
         return dateFormatter.string(from: date)
     }
     
+    func monthDayString(date: Date) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    
     //return year in string
     //1 Jan 2022 -> 2022
     func yearString(date: Date) -> String
@@ -38,7 +46,7 @@ class CalendarHelper{
         return dateFormatter.string(from: date)
     }
     
-    func timetring(date: Date) -> String
+    func timeString(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM"
@@ -59,6 +67,11 @@ class CalendarHelper{
         return components.day!
     }
     
+    func hourFromDate(date: Date) -> Int {
+        let components = calendar.dateComponents([.hour], from: date)
+        return components.hour!
+    }
+    
     //24 Jan 2022 -> 1 Jan 2022
     func firstOfMonth(date: Date) -> Date {
         let components = calendar.dateComponents([.year, .month], from: date)
@@ -69,6 +82,29 @@ class CalendarHelper{
     func weekDay(date: Date) -> Int {
         let components = calendar.dateComponents([.weekday], from: date)
         return components.weekday! - 1
+    }
+    
+    func weekDayAsString(date: Date) -> String {
+        switch weekDay(date: date)
+        {
+        case 0:
+            return "Sunday"
+        case 1:
+            return "Monday"
+        case 2:
+            return "Tuesday"
+        case 3:
+            return "Wednesday"
+        case 4:
+            return "Thursday"
+        case 5:
+            return "Friday"
+        case 6:
+            return "Saturday"
+        default:
+            return ""
+            
+        }
     }
     
     

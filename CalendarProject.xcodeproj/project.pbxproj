@@ -10,6 +10,8 @@
 		4F26158E29078AF80092BD7A /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26158D29078AF80092BD7A /* EventEditViewController.swift */; };
 		4F26159029078B020092BD7A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26158F29078B020092BD7A /* EventCell.swift */; };
 		4F26159229078DDC0092BD7A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26159129078DDC0092BD7A /* Event.swift */; };
+		4F72371429079AEC00620672 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F72371329079AEC00620672 /* DailyCell.swift */; };
+		4F72371629079B0000620672 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F72371529079B0000620672 /* DailyViewController.swift */; };
 		4F7A94AF2905D83C009A1F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A94AE2905D83C009A1F99 /* AppDelegate.swift */; };
 		4F7A94B12905D83C009A1F99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A94B02905D83C009A1F99 /* SceneDelegate.swift */; };
 		4F7A94B32905D83C009A1F99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A94B22905D83C009A1F99 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 		4F26158D29078AF80092BD7A /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
 		4F26158F29078B020092BD7A /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		4F26159129078DDC0092BD7A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4F72371329079AEC00620672 /* DailyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
+		4F72371529079B0000620672 /* DailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
 		4F7A94AB2905D83C009A1F99 /* CalendarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7A94AE2905D83C009A1F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F7A94B02905D83C009A1F99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				4F26158F29078B020092BD7A /* EventCell.swift */,
 				4F26159129078DDC0092BD7A /* Event.swift */,
 				4F7A94C42905E4D2009A1F99 /* CalendarHelper.swift */,
+				4F72371529079B0000620672 /* DailyViewController.swift */,
+				4F72371329079AEC00620672 /* DailyCell.swift */,
 				4F7A94B42905D83C009A1F99 /* Main.storyboard */,
 				4F7A94B72905D83E009A1F99 /* Assets.xcassets */,
 				4F7A94B92905D83E009A1F99 /* LaunchScreen.storyboard */,
@@ -157,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F7A94C52905E4D2009A1F99 /* CalendarHelper.swift in Sources */,
+				4F72371429079AEC00620672 /* DailyCell.swift in Sources */,
+				4F72371629079B0000620672 /* DailyViewController.swift in Sources */,
 				4F26159229078DDC0092BD7A /* Event.swift in Sources */,
 				4F26158E29078AF80092BD7A /* EventEditViewController.swift in Sources */,
 				4F7A94B32905D83C009A1F99 /* ViewController.swift in Sources */,
