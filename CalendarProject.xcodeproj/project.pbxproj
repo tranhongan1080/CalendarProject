@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F26158E29078AF80092BD7A /* EventEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26158D29078AF80092BD7A /* EventEditViewController.swift */; };
+		4F26159029078B020092BD7A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26158F29078B020092BD7A /* EventCell.swift */; };
+		4F26159229078DDC0092BD7A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26159129078DDC0092BD7A /* Event.swift */; };
 		4F7A94AF2905D83C009A1F99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A94AE2905D83C009A1F99 /* AppDelegate.swift */; };
 		4F7A94B12905D83C009A1F99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A94B02905D83C009A1F99 /* SceneDelegate.swift */; };
 		4F7A94B32905D83C009A1F99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A94B22905D83C009A1F99 /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F26158D29078AF80092BD7A /* EventEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditViewController.swift; sourceTree = "<group>"; };
+		4F26158F29078B020092BD7A /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		4F26159129078DDC0092BD7A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4F7A94AB2905D83C009A1F99 /* CalendarProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7A94AE2905D83C009A1F99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F7A94B02905D83C009A1F99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,9 @@
 				4F7A94B22905D83C009A1F99 /* ViewController.swift */,
 				4F7A94C22905E024009A1F99 /* CalendarCell.swift */,
 				4F7A94C6290608D4009A1F99 /* WeeklyViewController.swift */,
+				4F26158D29078AF80092BD7A /* EventEditViewController.swift */,
+				4F26158F29078B020092BD7A /* EventCell.swift */,
+				4F26159129078DDC0092BD7A /* Event.swift */,
 				4F7A94C42905E4D2009A1F99 /* CalendarHelper.swift */,
 				4F7A94B42905D83C009A1F99 /* Main.storyboard */,
 				4F7A94B72905D83E009A1F99 /* Assets.xcassets */,
@@ -148,8 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F7A94C52905E4D2009A1F99 /* CalendarHelper.swift in Sources */,
+				4F26159229078DDC0092BD7A /* Event.swift in Sources */,
+				4F26158E29078AF80092BD7A /* EventEditViewController.swift in Sources */,
 				4F7A94B32905D83C009A1F99 /* ViewController.swift in Sources */,
 				4F7A94AF2905D83C009A1F99 /* AppDelegate.swift in Sources */,
+				4F26159029078B020092BD7A /* EventCell.swift in Sources */,
 				4F7A94C7290608D4009A1F99 /* WeeklyViewController.swift in Sources */,
 				4F7A94B12905D83C009A1F99 /* SceneDelegate.swift in Sources */,
 				4F7A94C32905E024009A1F99 /* CalendarCell.swift in Sources */,

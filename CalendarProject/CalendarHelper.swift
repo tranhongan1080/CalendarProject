@@ -38,6 +38,13 @@ class CalendarHelper{
         return dateFormatter.string(from: date)
     }
     
+    func timetring(date: Date) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:MM"
+        return dateFormatter.string(from: date)
+    }
+    
     //return number of days in a month
     // Jan -> 31 days
     func daysInMonth(date: Date) -> Int {

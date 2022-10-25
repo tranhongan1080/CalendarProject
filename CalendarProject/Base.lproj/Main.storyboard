@@ -391,14 +391,14 @@
                                 <rect key="frame" x="0.0" y="286" width="390" height="425"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="GDk-lV-HeY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" id="GDk-lV-HeY" customClass="EventCell" customModule="CalendarProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GDk-lV-HeY" id="3vM-Xt-Mor">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFl-mD-1HR">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFl-mD-1HR">
                                                     <rect key="frame" x="34" y="11.666666666666666" width="42.666666666666657" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -410,8 +410,15 @@
                                                 <constraint firstItem="lFl-mD-1HR" firstAttribute="centerY" secondItem="3vM-Xt-Mor" secondAttribute="centerY" id="bTa-38-Dmp"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="eventLabel" destination="lFl-mD-1HR" id="Bxt-KI-JIY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Z9E-5g-RjI" id="bZ5-WN-ih0"/>
+                                    <outlet property="delegate" destination="Z9E-5g-RjI" id="xOS-BM-sFb"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xcG-50-GsV"/>
@@ -442,6 +449,7 @@
                     <connections>
                         <outlet property="collectionView" destination="d4K-2c-mTQ" id="cku-Xq-7wF"/>
                         <outlet property="monthLabel" destination="i88-Ak-Qt7" id="hL4-hZ-w0G"/>
+                        <outlet property="tableView" destination="avv-I4-WwQ" id="Mmp-0p-9mm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDy-hf-Saw" sceneMemberID="firstResponder"/>
@@ -451,17 +459,17 @@
         <!--Edit Event-->
         <scene sceneID="leY-FN-R2x">
             <objects>
-                <viewController id="TEM-UW-D4r" sceneMemberID="viewController">
+                <viewController id="TEM-UW-D4r" customClass="EventEditViewController" customModule="CalendarProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cvn-gG-PDc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-sA-E4a">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-sA-E4a">
                                 <rect key="frame" x="58.666666666666657" y="141" width="273" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="toc-5x-IeX">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="toc-5x-IeX">
                                 <rect key="frame" x="0.0" y="195" width="390" height="159"/>
                             </datePicker>
                         </subviews>
@@ -475,15 +483,24 @@
                             <constraint firstItem="toc-5x-IeX" firstAttribute="top" secondItem="GNg-sA-E4a" secondAttribute="bottom" constant="20" id="Z8S-xC-ukD"/>
                             <constraint firstItem="GNg-sA-E4a" firstAttribute="leading" secondItem="znx-0W-WKt" secondAttribute="leading" constant="58.670000000000002" id="bCG-Uq-V1U"/>
                             <constraint firstItem="GNg-sA-E4a" firstAttribute="top" secondItem="znx-0W-WKt" secondAttribute="top" constant="50" id="oj4-l7-5yt"/>
-                            <constraint firstItem="toc-5x-IeX" firstAttribute="top" secondItem="GNg-sA-E4a" secondAttribute="bottom" constant="20.329999999999998" id="vCd-Th-rhL"/>
                             <constraint firstItem="toc-5x-IeX" firstAttribute="trailing" secondItem="znx-0W-WKt" secondAttribute="trailing" id="zqq-pT-x7w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Event" id="7hk-fz-W1B"/>
+                    <navigationItem key="navigationItem" title="Edit Event" id="7hk-fz-W1B">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="e6j-ks-t6a">
+                            <connections>
+                                <action selector="saveBtn:" destination="TEM-UW-D4r" id="fXV-MA-9fZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="name" destination="GNg-sA-E4a" id="cXZ-hy-aI7"/>
+                        <outlet property="schedule" destination="toc-5x-IeX" id="qan-Nm-3pw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4b-tj-147" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3261.5384615384614" y="-385.30805687203792"/>
+            <point key="canvasLocation" x="3268" y="-385"/>
         </scene>
     </scenes>
     <resources>
