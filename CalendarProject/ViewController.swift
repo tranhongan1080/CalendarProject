@@ -12,12 +12,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var today: UILabel!
+   
+    
     var selectedDate = Date()
     var totalSquares = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        today.text = " Today: \(CalendarHelper().monthDayString(date: Date())) "
         setCellsView()
         setMonthView()
     }
@@ -69,6 +73,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCell
         cell.dayOfMonth.text = totalSquares[indexPath.item]
+ 
+        //if(cell.dayOfMonth.text == String(26)){
+            //cell.backgroundColor = UIColor.systemGreen
+        //}
+
+        
         return cell
     }
     
@@ -80,6 +90,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @IBAction func nextMonth(_ sender: Any) {
+        //print(totalSquares.count)
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
         setMonthView()
     }

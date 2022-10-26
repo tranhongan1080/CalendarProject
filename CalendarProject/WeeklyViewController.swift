@@ -82,6 +82,7 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedDate = totalSquares[indexPath.item]
+        //print(selectedDate)
         collectionView.reloadData()
         tableView.reloadData()
     }
@@ -94,6 +95,7 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func nextWeek(_ sender: Any) {
+        //print(totalSquares.count)
         selectedDate = CalendarHelper().addDays(date: selectedDate, days: 7)
         setWeekView()
     }

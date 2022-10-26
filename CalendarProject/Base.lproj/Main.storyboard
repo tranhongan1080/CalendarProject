@@ -63,10 +63,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.87755102039999999" green="1" blue="0.99446210639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.36663824950000001" blue="0.33109243700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PWM-rM-5cg">
-                                <rect key="frame" x="0.0" y="235.33333333333334" width="390" height="475.66666666666663"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="215.33333333333334" width="390" height="395.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="2" minimumInteritemSpacing="2" id="rzq-k7-Dlp">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -82,14 +84,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5u-fS-sg2">
-                                                    <rect key="frame" x="60.333333333333336" y="22" width="7.6666666666666643" height="20.333333333333329"/>
+                                                    <rect key="frame" x="60.333333333333336" y="54.000000000000007" width="7.6666666666666643" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="K5u-fS-sg2" firstAttribute="centerY" secondItem="48u-Jc-GnP" secondAttribute="centerY" multiplier="0.5" id="ICh-ck-4tM"/>
+                                                <constraint firstItem="K5u-fS-sg2" firstAttribute="centerY" secondItem="48u-Jc-GnP" secondAttribute="centerY" id="ICh-ck-4tM"/>
                                                 <constraint firstItem="K5u-fS-sg2" firstAttribute="centerX" secondItem="48u-Jc-GnP" secondAttribute="centerX" id="uoR-jT-5TW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -143,6 +145,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glh-P3-Qrj">
+                                <rect key="frame" x="0.0" y="645.33333333333337" width="390" height="89.666666666666629"/>
+                                <color key="backgroundColor" red="0.87755102044829925" green="1" blue="0.99446210644720467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -150,12 +159,16 @@
                             <constraint firstItem="LrT-to-Xht" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="67e-RQ-XUS"/>
                             <constraint firstItem="LrT-to-Xht" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Gsn-xO-Ukh"/>
                             <constraint firstItem="mxJ-gR-KHg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MPj-hW-WVB"/>
+                            <constraint firstItem="glh-P3-Qrj" firstAttribute="top" secondItem="LrT-to-Xht" secondAttribute="bottom" constant="430" id="QDY-KH-4m6"/>
                             <constraint firstItem="PWM-rM-5cg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YKY-6h-AnL"/>
-                            <constraint firstItem="PWM-rM-5cg" firstAttribute="top" secondItem="LrT-to-Xht" secondAttribute="bottom" constant="20" id="ZuH-6v-RNW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="glh-P3-Qrj" secondAttribute="trailing" id="Ygh-1b-5Ck"/>
+                            <constraint firstItem="PWM-rM-5cg" firstAttribute="top" secondItem="LrT-to-Xht" secondAttribute="bottom" id="ZuH-6v-RNW"/>
+                            <constraint firstItem="glh-P3-Qrj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ix9-Ms-HV6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LrT-to-Xht" secondAttribute="trailing" constant="5" id="nb6-3a-LTh"/>
                             <constraint firstItem="mxJ-gR-KHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="ota-sO-8Cg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="glh-P3-Qrj" secondAttribute="bottom" constant="26" id="qlA-LL-yt4"/>
                             <constraint firstItem="PWM-rM-5cg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sdS-nI-yFm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PWM-rM-5cg" secondAttribute="bottom" constant="50" id="ur6-qa-cnM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PWM-rM-5cg" secondAttribute="bottom" constant="150" id="ur6-qa-cnM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Monthly Calendar" id="Och-n6-Q9z">
@@ -174,6 +187,7 @@
                     <connections>
                         <outlet property="collectionView" destination="PWM-rM-5cg" id="sQe-BJ-aix"/>
                         <outlet property="monthLabel" destination="GYq-M0-QiJ" id="QfZ-Qh-VHk"/>
+                        <outlet property="today" destination="glh-P3-Qrj" id="XMc-Wl-iqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
