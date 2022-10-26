@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Monthly Calendar-->
+        <!--Month-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalendarProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,13 +171,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PWM-rM-5cg" secondAttribute="bottom" constant="150" id="ur6-qa-cnM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Monthly Calendar" id="Och-n6-Q9z">
+                    <navigationItem key="navigationItem" title="Month" id="Och-n6-Q9z">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="AEp-UT-yxC">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="HCp-Bn-TEd">
-                                <rect key="frame" x="268" y="0.0" width="106" height="44"/>
+                                <rect key="frame" x="245.33333333333337" y="0.0" width="128.66666666666663" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Weekly"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Current week"/>
                                 <connections>
                                     <segue destination="Z9E-5g-RjI" kind="show" id="4yE-LW-1NY"/>
                                 </connections>
@@ -314,7 +314,7 @@
             </objects>
             <point key="canvasLocation" x="994" y="284"/>
         </scene>
-        <!--Weekly Calendar-->
+        <!--Week-->
         <scene sceneID="AmB-Fz-WIZ">
             <objects>
                 <viewController id="Z9E-5g-RjI" customClass="WeeklyViewController" customModule="CalendarProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -501,7 +501,7 @@
                             <constraint firstItem="y4y-rW-WoW" firstAttribute="top" secondItem="xcG-50-GsV" secondAttribute="top" constant="15" id="xUB-fC-yxI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weekly Calendar" id="Agn-b7-sBm">
+                    <navigationItem key="navigationItem" title="Week" id="Agn-b7-sBm">
                         <rightBarButtonItems>
                             <barButtonItem style="plain" systemItem="add" id="oVP-cw-gPn">
                                 <connections>
@@ -510,10 +510,10 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="mNH-n1-YPO">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KJq-RM-mkT">
-                                    <rect key="frame" x="246" y="5" width="86" height="34.333333333333336"/>
+                                    <rect key="frame" x="218.33333333333337" y="5" width="113.66666666666669" height="34.333333333333336"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Daily"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Current day"/>
                                     <connections>
                                         <segue destination="aOq-AI-CjA" kind="show" id="VzD-Tc-0ry"/>
                                     </connections>
@@ -595,7 +595,7 @@
             </objects>
             <point key="canvasLocation" x="4184.6153846153848" y="-385.30805687203792"/>
         </scene>
-        <!--Daily Calendar-->
+        <!--Day-->
         <scene sceneID="9JC-SQ-tvH">
             <objects>
                 <viewController id="aOq-AI-CjA" customClass="DailyViewController" customModule="CalendarProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -749,7 +749,7 @@
                             <constraint firstItem="pDt-qT-IYI" firstAttribute="trailing" secondItem="h8D-PH-S1b" secondAttribute="trailing" constant="11" id="tB3-5h-fL2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Daily Calendar" id="0d0-I2-Y3m">
+                    <navigationItem key="navigationItem" title="Day" id="0d0-I2-Y3m">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Usa-fz-Nl6">
                             <connections>
                                 <segue destination="TEM-UW-D4r" kind="show" id="GRB-vO-gX0"/>
@@ -768,7 +768,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Gh-Pn-e9s"/>
+        <segue reference="GRB-vO-gX0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>

@@ -76,19 +76,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
-    //select cell color
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath as IndexPath)!
-        selectedCell.contentView.backgroundColor = UIColor.systemGreen
-    }
-    
-    //limit to 1 cell color selected
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cellToDeselect:UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        cellToDeselect.contentView.backgroundColor = UIColor.clear
-    }
-    
-    
     @IBAction func prevMonth(_ sender: Any) {
         selectedDate = CalendarHelper().minusMonth(date: selectedDate)
         setMonthView()
