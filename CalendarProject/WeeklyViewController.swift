@@ -133,6 +133,17 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ //wait 0.5s
+            self.createAlert(title: "Deleted", msg: "Delete event succesfully")
+        }
+    }
+    
+    func createAlert(title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
