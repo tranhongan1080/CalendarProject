@@ -73,15 +73,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCell
         cell.dayOfMonth.text = totalSquares[indexPath.item]
- 
-        //if(cell.dayOfMonth.text == String(26)){
-            //cell.backgroundColor = UIColor.systemGreen
-        //}
-
-        
         return cell
     }
     
+    //select cell color
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath as IndexPath)!
+        selectedCell.contentView.backgroundColor = UIColor.systemGreen
+    }
+    
+    //limit to 1 cell color selected
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cellToDeselect:UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        cellToDeselect.contentView.backgroundColor = UIColor.clear
+    }
     
     
     @IBAction func prevMonth(_ sender: Any) {

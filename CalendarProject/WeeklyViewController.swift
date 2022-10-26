@@ -73,7 +73,7 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         }
         else{
-            cell.backgroundColor = UIColor.white
+            cell.backgroundColor = UIColor.systemGray6
         }
         
         return cell

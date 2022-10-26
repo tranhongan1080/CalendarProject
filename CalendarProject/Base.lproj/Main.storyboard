@@ -221,9 +221,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="775-dg-sO0">
-                                <rect key="frame" x="50" y="405" width="290" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter the correct event's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="775-dg-sO0">
+                                <rect key="frame" x="50" y="404.66666666666669" width="290" height="35"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7M-2j-x8Y">
@@ -269,6 +269,7 @@
                     <connections>
                         <outlet property="name" destination="775-dg-sO0" id="xXR-JL-Hev"/>
                         <outlet property="searchLbl" destination="rGi-GO-Nel" id="bJU-k1-9Ic"/>
+                        <segue destination="TEM-UW-D4r" kind="show" identifier="edit_seg" id="7Gh-Pn-e9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpR-gS-fve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -538,33 +539,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-sA-E4a">
-                                <rect key="frame" x="58.666666666666657" y="141" width="273" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-sA-E4a">
+                                <rect key="frame" x="58.666666666666657" y="141" width="273" height="35"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="toc-5x-IeX">
-                                <rect key="frame" x="0.0" y="195" width="390" height="159"/>
+                                <rect key="frame" x="0.0" y="196" width="390" height="158"/>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT8-fS-MbQ">
-                                <rect key="frame" x="58" y="112" width="65" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT8-fS-MbQ">
+                                <rect key="frame" x="58" y="112" width="53.666666666666657" height="23"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event" translatesAutoresizingMaskIntoConstraints="NO" id="2gn-sJ-rqH">
+                                <rect key="frame" x="70" y="449" width="250" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="HQN-pu-ymd"/>
+                                    <constraint firstAttribute="width" constant="250" id="IcA-i9-gzS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="znx-0W-WKt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="znx-0W-WKt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oT8-fS-MbQ" secondAttribute="trailing" symbolic="YES" id="4db-tE-Lz0"/>
                             <constraint firstItem="toc-5x-IeX" firstAttribute="leading" secondItem="znx-0W-WKt" secondAttribute="leading" id="4v5-Zr-ZxK"/>
                             <constraint firstItem="znx-0W-WKt" firstAttribute="trailing" secondItem="GNg-sA-E4a" secondAttribute="trailing" constant="58.329999999999998" id="7Gf-30-Tf0"/>
                             <constraint firstItem="znx-0W-WKt" firstAttribute="bottom" secondItem="toc-5x-IeX" secondAttribute="bottom" constant="407" id="9n9-9T-3qf"/>
+                            <constraint firstItem="znx-0W-WKt" firstAttribute="bottom" secondItem="2gn-sJ-rqH" secondAttribute="bottom" constant="140" id="E4C-d0-1Rw"/>
                             <constraint firstItem="toc-5x-IeX" firstAttribute="centerX" secondItem="Cvn-gG-PDc" secondAttribute="centerX" id="L1e-vy-VIf"/>
                             <constraint firstItem="toc-5x-IeX" firstAttribute="top" secondItem="GNg-sA-E4a" secondAttribute="bottom" constant="20" id="Z8S-xC-ukD"/>
                             <constraint firstItem="oT8-fS-MbQ" firstAttribute="top" secondItem="znx-0W-WKt" secondAttribute="top" constant="21" id="ZEA-ml-hgY"/>
                             <constraint firstItem="GNg-sA-E4a" firstAttribute="leading" secondItem="znx-0W-WKt" secondAttribute="leading" constant="58.670000000000002" id="bCG-Uq-V1U"/>
-                            <constraint firstItem="znx-0W-WKt" firstAttribute="trailing" secondItem="oT8-fS-MbQ" secondAttribute="trailing" constant="290" id="ey2-gq-xNR"/>
                             <constraint firstItem="GNg-sA-E4a" firstAttribute="top" secondItem="znx-0W-WKt" secondAttribute="top" constant="50" id="oj4-l7-5yt"/>
+                            <constraint firstItem="2gn-sJ-rqH" firstAttribute="centerX" secondItem="Cvn-gG-PDc" secondAttribute="centerX" id="qiF-Bd-5kx"/>
                             <constraint firstItem="oT8-fS-MbQ" firstAttribute="leading" secondItem="znx-0W-WKt" secondAttribute="leading" constant="58" id="yH3-or-gdz"/>
                             <constraint firstItem="toc-5x-IeX" firstAttribute="trailing" secondItem="znx-0W-WKt" secondAttribute="trailing" id="zqq-pT-x7w"/>
                         </constraints>
@@ -758,12 +768,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CWz-3R-KiX"/>
+        <segue reference="7Gh-Pn-e9s"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="104"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="event" width="512" height="512"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="search-flat" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
