@@ -10,8 +10,6 @@ import UIKit
 
 class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var dayOfWeekLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var hourTableView: UITableView!
@@ -51,6 +49,20 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let actionSheetAlert = UIAlertController(title: "Options", message: "" , preferredStyle: .actionSheet)
+        actionSheetAlert.addAction(UIAlertAction(title: "Delete", style: .default, handler: {_ in
+            
+            self.createAlert(title: "Deleted", msg: "You have deleted the current event")
+            }))
+        actionSheetAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(actionSheetAlert, animated: true, completion: nil)
+
+    }
+
     
     func setEvents(_ cell: DailyCell, _ events: [Event])
     {
@@ -119,5 +131,14 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidAppear(animated)
         setDayView()
     }
+    
+    func createAlert(title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
 }

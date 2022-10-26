@@ -25,7 +25,7 @@ class CalendarHelper{
     func monthString(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM"
+        dateFormatter.dateFormat = "LLLL"
         return dateFormatter.string(from: date)
     }
     
@@ -42,14 +42,14 @@ class CalendarHelper{
     func yearString(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY"
+        dateFormatter.dateFormat = "yyyy"
         return dateFormatter.string(from: date)
     }
     
     func timeString(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: date)
     }
     

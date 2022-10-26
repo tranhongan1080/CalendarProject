@@ -11,7 +11,6 @@ var selectedDate = Date()
 
 class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
-    
 
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -107,9 +106,35 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! EventCell
         let event = Event().eventsforDate(date: selectedDate)[indexPath.row]
-        cell.eventLabel.text = event.name + " " + CalendarHelper().timeString(date: event.date)
+        
+        let str = CalendarHelper().timeString(date: event.date)
+        
+        let boldText = str
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 25)]
+        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+        
+        let normalText = "   -   " + event.name
+        let normalString = NSMutableAttributedString(string:normalText)
+        
+        attributedString.append(normalString)
+        
+        cell.eventLabel.attributedText = attributedString
+        
+        
+        //cell.eventLabel.text = event.name + " " + CalendarHelper().timeString(date: event.date)
         return cell
     }
+    
+    //swipe the row to delete events
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            eventsList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
