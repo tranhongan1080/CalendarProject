@@ -20,7 +20,12 @@ class EventEditViewController: UIViewController {
     @IBAction func saveBtn(_ sender: Any){
         let newEvent = Event()
         newEvent.id = eventsList.count
-        newEvent.name = name.text
+        if name.text! != "" {
+            newEvent.name = name.text
+        }
+        else {
+            newEvent.name = "Untitled"
+        }
         newEvent.date = schedule.date
         
         eventsList.append(newEvent)
