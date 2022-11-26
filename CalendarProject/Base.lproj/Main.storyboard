@@ -250,6 +250,37 @@
                                     <action selector="searchBtn:" destination="cbH-jT-xuA" eventType="touchUpInside" id="jwa-YR-7vE"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lif-0R-CU1">
+                                <rect key="frame" x="16" y="587" width="358" height="219"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="0jJ-D2-c6L">
+                                        <rect key="frame" x="0.0" y="50" width="358" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0jJ-D2-c6L" id="eOj-yQ-4Bj">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mak-3h-rR0">
+                                                    <rect key="frame" x="158.33333333333334" y="11.666666666666666" width="41.333333333333343" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mak-3h-rR0" firstAttribute="centerX" secondItem="eOj-yQ-4Bj" secondAttribute="centerX" id="aEq-eO-79d"/>
+                                                <constraint firstItem="mak-3h-rR0" firstAttribute="centerY" secondItem="eOj-yQ-4Bj" secondAttribute="centerY" id="ahu-OF-fGW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cbH-jT-xuA" id="4Dq-TN-cCP"/>
+                                    <outlet property="delegate" destination="cbH-jT-xuA" id="rbd-X5-xKe"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I2R-G2-TQf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -269,6 +300,7 @@
                     <connections>
                         <outlet property="name" destination="775-dg-sO0" id="xXR-JL-Hev"/>
                         <outlet property="searchLbl" destination="rGi-GO-Nel" id="bJU-k1-9Ic"/>
+                        <outlet property="tableView" destination="lif-0R-CU1" id="IeX-ap-dlq"/>
                         <segue destination="TEM-UW-D4r" kind="show" identifier="edit_seg" id="7Gh-Pn-e9s"/>
                     </connections>
                 </viewController>
@@ -510,7 +542,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="mNH-n1-YPO">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KJq-RM-mkT">
-                                    <rect key="frame" x="218.33333333333337" y="5" width="113.66666666666669" height="34.333333333333336"/>
+                                    <rect key="frame" x="209" y="5" width="123" height="34.333333333333336"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Selected day"/>
@@ -768,7 +800,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CWz-3R-KiX"/>
+        <segue reference="7Gh-Pn-e9s"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>

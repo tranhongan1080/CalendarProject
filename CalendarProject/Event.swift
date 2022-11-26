@@ -45,5 +45,18 @@ class Event{
         }
         return daysEvents
     }
+    
+    func eventsForName(name: String) -> [Event]
+    {
+        var daysEvents = [Event]()
+        for event in eventsList
+        {
+            if (event.name.lowercased() == name.lowercased())
+            {
+                daysEvents.append(event)
+            }
+        }
+        return daysEvents
+    }
 }
 

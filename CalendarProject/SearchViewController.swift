@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Foundation
 
-class SearchViewController: UIViewController {
+var searchQuery = ""
+
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var event = [String]()
     var eventAndDate: [String:String] = [:]
@@ -25,10 +28,11 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var searchLbl: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func searchBtn(_ sender: Any) {
         //eventLists, contains array of struct Event, eventLists[index].name to access lists of events
         
-        let searchToSearch = name.text
+        searchQuery = name.text!
         
         for i in 0..<eventsList.count{
             event.append(eventsList[i].name)
@@ -41,7 +45,7 @@ class SearchViewController: UIViewController {
         //createAlert(title: "Event found", msg: "\(String(describing: name.text)) at \(eventAndDate[name.text!]!)")
 
         let matchingTerms = event.filter({
-            $0.range(of: searchToSearch!, options: .caseInsensitive) != nil
+            $0.range(of: searchQuery, options: .caseInsensitive) != nil
         })
         
         if(name.text == ""){
@@ -52,11 +56,44 @@ class SearchViewController: UIViewController {
             popViewAlert(title: "Event not found", msg: "Would you like to create a new event?")
         }
         else{
-            createAlert(title: "Event found", msg: " '\(matchingTerms[0])' will occur on \(String(describing: eventAndDate[matchingTerms[0]]!))")
+            //createAlert(title: "Event found", msg: " '\(matchingTerms[0])' will occur on \(String(describing: eventAndDate[matchingTerms[0]]!))")
+            tableView.reloadData()
         }
     }
         
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Event().eventsForName(name: searchQuery).count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventCell
+//        let event = Event().eventsForName(name: searchQuery)[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cellEventLabel = cell.viewWithTag(1) as! UILabel
         
+        let event = Event().eventsForName(name: searchQuery)[indexPath.row]
+//        let str = CalendarHelper().timeString(date: event.date)
+
+//        let boldText = str
+//        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 25)]
+//        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+//
+//        let normalText = "   -   " + event.name
+//        let normalString = NSMutableAttributedString(string:normalText)
+//
+//        attributedString.append(normalString)
+//        cell.eventLabel.attributedText = attributedString
+        // print("Attributed String: \(attributedString)")
+        
+        let name = event.name + "   -   "
+        let time = CalendarHelper().timeString(date: event.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YY"
+        
+        cellEventLabel.text = "\(name)\(dateFormatter.string(from: event.date)) at \(time)"
+        return cell
+    }
+    
     func createAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { _ in
