@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-var searchQuery = ""
+var searchQuery = "" // the name of event the user would like to search
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -28,7 +28,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var searchLbl: UIButton!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! // search results of matching events
+    
     @IBAction func searchBtn(_ sender: Any) {
         //eventLists, contains array of struct Event, eventLists[index].name to access lists of events
         

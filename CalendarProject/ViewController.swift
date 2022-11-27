@@ -73,6 +73,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCell
         cell.dayOfMonth.text = totalSquares[indexPath.item]
+        
+        // Add star to the date indicating an event on this day
+        for event in eventsList
+        {
+            if (getMonth(date: event.date) == getMonth(date: selectedDate)) {
+                if (getDay(date: event.date) == String(totalSquares[indexPath.item]))
+                {
+                    //cell.backgroundColor = UIColor.systemGreen
+                    cell.dayOfMonth.text = totalSquares[indexPath.item] + "*"
+                }
+            }
+        }
         return cell
     }
     
@@ -94,6 +106,41 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setMonthView()
+    }
+    
+    // Returns a list of all events for the current month
+    func eventsForMonth() -> [Event]
+    {
+        var daysEvents = [Event]()
+        
+        for event in eventsList
+        {
+            if (getMonth(date: event.date) == getMonth(date: selectedDate)) {
+                daysEvents.append(event)
+            }
+        }
+        
+        return daysEvents
+    }
+    
+    // Returns the numeric month in the form of a string
+    func getMonth(date: Date) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M"
+        let monthString = dateFormatter.string(from: date)
+        
+        return monthString
+    }
+    
+    // Returns the day of the month in the form of a string
+    func getDay(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d"
+        let dayString = dateFormatter.string(from: date)
+        
+        
+        return dayString
     }
 }
 

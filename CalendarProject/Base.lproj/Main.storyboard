@@ -95,6 +95,7 @@
                                                 <constraint firstItem="K5u-fS-sg2" firstAttribute="centerX" secondItem="48u-Jc-GnP" secondAttribute="centerX" multiplier="1.02" id="uoR-jT-5TW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <connections>
                                             <outlet property="dayOfMonth" destination="K5u-fS-sg2" id="mfx-Ce-BLe"/>
                                         </connections>
