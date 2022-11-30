@@ -52,7 +52,7 @@ class Event{
         var daysEvents = [Event]()
         for event in eventsList
         {
-            if (event.name.lowercased() == name.lowercased())
+            if (event.name.lowercased().contains(name.lowercased()))
             {
                 daysEvents.append(event)
             }
