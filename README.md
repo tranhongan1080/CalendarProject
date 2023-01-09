@@ -1,4 +1,4 @@
-# CalendarProject
+# Calendar Project
 Our calendar app allows users to create and manage events, schedule reminders, and view their upcoming events and tasks.
 
 # Installation
